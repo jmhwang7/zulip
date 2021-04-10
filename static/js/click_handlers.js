@@ -576,6 +576,7 @@ export function initialize() {
             onHide: () => {
                 observer.disconnect();
             },
+            appendTo: () => document.body,
         });
     }
 
