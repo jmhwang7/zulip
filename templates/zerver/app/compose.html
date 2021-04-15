@@ -6,20 +6,29 @@
                 <span id="compose-reply-error-msg"></span>
             </div>
             <div id="compose_buttons">
+                <span class="new_message_button reply_button_container">
+                    <button type="button" class="button small rounded sea-green compose_reply_button"
+                      id="left_bar_compose_reply_button_big"
+                      title="{{ _('Reply') }} (r)">
+                        <span class="compose_reply_button_label">
+                            {{ _("Message {recipient}").format(recipient='<span class="compose_reply_button_recipient_label"></span>'|safe) }}
+                        </span>
+                    </button>
+                </span>
                 <span class="new_message_button">
                     <a class="drafts-link no-underline button small rounded compose_drafts_button" href="#drafts" title="{{ _('Drafts') }} (d)">
                         {{ _('Drafts') }}
                     </a>
                     <span class="alert-draft pull-left">{{ _('Saved as draft') }}</span>
                 </span>
-                <span class="new_message_button">
+                <span class="new_message_button mobile_button_container">
                     <button type="button" class="button small rounded compose_mobile_button"
                       id="left_bar_compose_mobile_button_big"
                       title="{{ _('New message') }} (c)">
                         <span>+</span>
                     </button>
                 </span>
-                <span class="new_message_button">
+                <span class="new_message_button stream_button_container">
                     <button type="button" class="button small rounded compose_stream_button"
                       id="left_bar_compose_stream_button_big"
                       title="{{ _('New topic') }} (c)">
@@ -27,7 +36,7 @@
                     </button>
                 </span>
                 {% if not embedded %}
-                <span class="new_message_button">
+                <span class="new_message_button private_button_container">
                     <button type="button" class="button small rounded compose_private_button"
                       id="left_bar_compose_private_button_big"
                       title="{{ _('New private message') }} (x)">
@@ -35,13 +44,6 @@
                     </button>
                 </span>
                 {% endif %}
-                <span class="new_message_button">
-                    <button type="button" class="button small rounded compose_reply_button"
-                      id="left_bar_compose_reply_button_big"
-                      title="{{ _('Reply') }} (r)">
-                        <span class="compose_reply_button_label">{{ _('Reply') }}</span>
-                    </button>
-                </span>
             </div>
         </div>
         <div class="message_comp compose-content">
