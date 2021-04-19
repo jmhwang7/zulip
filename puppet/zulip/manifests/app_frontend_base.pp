@@ -76,7 +76,8 @@ class zulip::app_frontend_base {
   # This determines whether we run queue processors multithreaded or
   # multiprocess.  Multiprocess scales much better, but requires more
   # RAM; we just auto-detect based on available system RAM.
-  $queues_multiprocess = $zulip::base::total_memory_mb > 3500
+  $queues_multiprocess_default = $zulip::base::total_memory_mb > 3500
+  $queues_multiprocess = zulipconf('application_server', 'queue_workers_multiprocess', $queues_multiprocess_default)
   $queues = $zulip::base::normal_queues
   if $queues_multiprocess {
     $uwsgi_default_processes = 6
